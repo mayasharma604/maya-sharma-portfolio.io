@@ -18,7 +18,29 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 
 ---
 
-## Projects
+## Industry Projects
+
+### Medical Device Engineering Projects — Medtronic
+**Tech:** Embedded systems, software validation, medical device R&D  
+
+Worked on medical device projects under real-world constraints including safety, reliability,
+and cross-functional collaboration. Contributed to software and system-level development in
+regulated environments.
+
+[View Project →](projects/medtronic.md)
+
+---
+
+### Software Engineering — NTT Data
+**Tech:** Python, systems engineering, production code  
+
+Worked on software engineering projects emphasizing scalable systems, clean code practices,
+and industry-grade development workflows.
+
+[View Project →](projects/ntt-data.md)
+
+---
+## Extracurricular Projects
 
 ### Surgical Tracking System for Training (Johns Hopkins University Biomedical Engineering Design Team)
 **Role:** Team Lead & Engineer 
@@ -33,17 +55,6 @@ usability in realistic training settings.
 
 ---
 
-### Medical Device Engineering Projects — Medtronic
-**Tech:** Embedded systems, software validation, medical device R&D  
-
-Worked on medical device projects under real-world constraints including safety, reliability,
-and cross-functional collaboration. Contributed to software and system-level development in
-regulated environments.
-
-[View Project →](projects/medtronic.md)
-
----
-
 ### Computer-Integrated Surgery (CIS) Projects
 **Tech:** Python, perception, simulation  
 
@@ -54,13 +65,12 @@ in surgical and medical contexts.
 
 ---
 
-### Software Engineering — NTT Data
-**Tech:** Python, systems engineering, production code  
+### AI-ML Global Health Project
+**Tech:** ...
 
-Worked on software engineering projects emphasizing scalable systems, clean code practices,
-and industry-grade development workflows.
+words...
 
-[View Project →](projects/ntt-data.md)
+[View Project →](projects/ai-ml-global-health.md)
 
 ---
 
