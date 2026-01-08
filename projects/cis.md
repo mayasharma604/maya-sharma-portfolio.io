@@ -60,3 +60,4 @@ Using synchronized force and motion data, I developed algorithmic methods to ana
 This reframes surgical skill as a measurable perception and signal‑processing problem rather than a purely qualitative one.
 
 ---
+
