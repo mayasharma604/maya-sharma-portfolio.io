@@ -1,3 +1,8 @@
+---
+layout: default
+title: Design Team Project
+---
+
 # Surgical Tracking System for Training
 
 **Context:** Design Team  
