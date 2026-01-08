@@ -1,3 +1,8 @@
+---
+layout: default
+title: Medical Device Engineering Projects — Medtronic
+---
+
 # Medical Device Engineering Projects — Medtronic
 
 ## Context
