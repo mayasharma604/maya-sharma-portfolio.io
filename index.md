@@ -11,7 +11,6 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 **Languages:** Python, Java, R, C++, MATLAB  
 **Machine Learning:** PyTorch, TensorFlow, scikit-learn, Hugging Face, Detection Models  
 **Robotics & Perception:** Robotics & Control, Tracking, vision-based systems, Embedded Systems
-
 **Tools:** Git, Docker, Linux  
 
 ---
