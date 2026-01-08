@@ -7,11 +7,19 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 
 ---
 
+## Skills
+**Languages:** Python, Java, R, C++, MATLAB  
+**Machine Learning:** PyTorch, TensorFlow, scikit-learn, Hugging Face, Detection Models  
+**Robotics & Perception:** Robotics & Control, Tracking, vision-based systems, Embedded Systems
+**Tools:** Git, Docker, Linux  
+
+---
+
 ## Projects
 
 ### Surgical Tracking System for Training (Design Team)
 **Role:** Team Lead  
-**Tech:** Python, OpenCV, ML, system design  
+**Tech:** Python, time‑Series data processing, signal normalization, sensor fusion, dataset generation for ML/perception
 
 Led a multidisciplinary team developing a tracking system to enhance feedback for surgical
 trainees. Designed perception pipelines and system architecture to improve robustness and
@@ -49,14 +57,6 @@ Worked on software engineering projects emphasizing scalable systems, clean code
 and industry-grade development workflows.
 
 [View Project →](projects/ntt-data.md)
-
----
-
-## Skills
-**Languages:** Python, C++, MATLAB  
-**Machine Learning:** PyTorch, TensorFlow, CNNs, detection models  
-**Robotics & Perception:** Tracking, vision-based systems, ROS  
-**Tools:** Git, Docker, Linux  
 
 ---
 
