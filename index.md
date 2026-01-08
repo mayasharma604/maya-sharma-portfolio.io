@@ -44,8 +44,8 @@ regulated environments.
 
 ---
 
-### Computer-Integrated Surgery (CIS) Coursework
-**Tech:** Python, C++, perception, simulation  
+### Computer-Integrated Surgery (CIS) Projects
+**Tech:** Python, perception, simulation  
 
 Selected coding projects focused on perception, modeling, and system-level problem solving
 in surgical and medical contexts.
