@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Computer Integrated Surgery
-show_title: false
 ---
 
 # Computer Integrated Surgery
