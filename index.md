@@ -20,7 +20,7 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 
 ## Projects
 
-### Surgical Tracking System for Training (Design Team)
+### Surgical Tracking System for Training (Johns Hopkins University Biomedical Engineering Design Team)
 **Role:** Team Lead & Engineer 
 
 **Tech:** Python, time‑Series data processing, signal normalization, sensor fusion, dataset generation for ML/perception
