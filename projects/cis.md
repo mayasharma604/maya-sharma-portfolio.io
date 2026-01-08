@@ -3,61 +3,127 @@ layout: default
 title: Computer Integrated Surgery
 ---
 
-# Computer Integrated Surgery
+# Computer Integrated Surgery (CIS) — Software Projects
 
-## Overview
-My work in Computer Integrated Surgery focuses on building perception‑driven, data‑centric systems for surgical simulation and skill assessment. Across multiple projects, I worked at the intersection of sensing, real‑time software pipelines, and algorithmic analysis to quantify surgical interaction, instrument motion, and procedural dynamics. The emphasis was on translating raw multimodal signals into interpretable, time‑synchronized representations of surgical behavior.
+**Medical Tracking, Calibration, and Registration Systems**  
+*Python · Numerical Linear Algebra · Optimization · Geometry · Sensor Fusion*
 
----
-
-## Surgical Sensing & Data Pipelines
-
-### Real‑Time Force & Pressure Sensing
-I developed a software pipeline to capture, synchronize, and analyze force data from embedded conductive pressure sensors integrated within a hydrogel prostate phantom used for AEEP simulation.
-
-**Key contributions**
-- Designed a **Python‑based data acquisition and processing pipeline** interfacing with microcontroller hardware  
-- Implemented **calibration and normalization algorithms** to mitigate sensor drift and baseline variability  
-- Performed **time‑series analysis** to identify force peaks, transients, and sustained pressure patterns across procedural phases  
-- Synchronized force signals with procedural video to enable **temporal alignment between surgeon motion and physical interaction**
-
-This system enabled identification of high‑risk regions where excessive force was applied, forming the basis for future real‑time feedback and automated skill assessment.
+Worked on a sequence of software systems for medical navigation and robotic perception, focused on 3D geometry, calibration, registration, and tracking pipelines used in image‑guided surgery. Implemented end‑to‑end algorithms for EM and optical tracking, sensor calibration, distortion correction, and CT‑space navigation, emphasizing numerical stability, modular design, and algorithmic correctness.
 
 ---
 
-### Hardware–Software Synchronization
-A core challenge was aligning heterogeneous data streams in real time. I worked on:
+## 1. Rigid Registration & Coordinate Frame Infrastructure
 
-- **Low‑latency multi‑channel data logging**  
-- Timestamp‑based synchronization across force sensors, inertial data, and endoscopic video  
-- Software abstractions that decoupled hardware sampling rates from higher‑level analysis, enabling rapid iteration without re‑instrumenting the system  
-
-This modular design allows additional sensing modalities to be integrated with minimal changes to the pipeline.
-
----
-
-## Instrument Motion & Pose Estimation
-
-### Endoscope Tip Position & Orientation Estimation
-To complement force sensing, I contributed to the software approach for estimating endoscope motion using inertial measurements.
+Built a reusable 3D geometry and transformation library supporting rotations, translations, and homogeneous transforms across multiple coordinate frames.
 
 **Software approach**
-- Processed IMU data streams (gyroscope, accelerometer, magnetometer) to estimate **endoscope orientation and relative tip position**  
-- Applied sensor fusion techniques to reduce noise and drift while maintaining responsiveness  
-- Integrated motion estimates with force data to reason about **where and how force was applied** during surgical interaction  
+- Implemented SVD‑based least‑squares rigid registration (Arun et al., 1987) for 3D point sets  
+- Designed utilities for:
+  - Frame chaining and inversion  
+  - Batch transformation of point clouds  
+  - Reflection detection and correction (`det(R) = +1`)  
+- Used NumPy for vectorized linear algebra and numerical robustness  
 
-This multimodal fusion enabled richer interpretation of surgeon behavior and supports downstream applications in perception, robotics, and intelligent assistance.
+**Key abstractions**
+- `register_points(A, B) → (R, t)`  
+- `apply_transform(R, t, pts) → frame‑consistent point mapping`  
+- Clear separation between geometry, I/O, and algorithms  
+
+---
+
+## 2. Probe Pivot Calibration (EM & Optical Tracking)
+
+Developed calibration algorithms to recover probe tip position from tracked marker data across time.
+
+**Algorithmic formulation**
+- Modeled pivot calibration as a stacked linear least‑squares problem  
+- Solved for:
+  - Fixed probe tip offset in local coordinates  
+  - Stationary pivot point in tracker coordinates  
+- Unified EM and optical pivot calibration under the same mathematical framework  
+
+**CS emphasis**
+- Reduced geometric calibration to a solvable linear system  
+- Designed frame‑agnostic pipeline reusable across sensor modalities  
+- Quantified residuals to evaluate calibration accuracy  
 
 ---
 
-## Algorithmic Analysis of Surgical Workflow
-Using synchronized force and motion data, I developed algorithmic methods to analyze surgical behavior.
+## 3. EM Tracker Distortion Correction (Nonlinear Modeling)
 
-- Temporal segmentation of procedures into clinically meaningful phases  
-- Identification of force signatures associated with specific dissection actions  
-- Comparative analysis across trials to study consistency and variability in expert performance  
+Implemented a nonlinear distortion correction pipeline for EM tracking systems.
 
-This reframes surgical skill as a measurable perception and signal‑processing problem rather than a purely qualitative one.
+**Software & ML‑adjacent approach**
+- Modeled EM field distortion using 3D Bernstein polynomial basis functions  
+- Constructed a design matrix and solved a large least‑squares optimization problem  
+- Built a callable correction function mapping distorted → corrected coordinates  
+
+**Why this matters**
+- Introduces function approximation, regression, and numerical optimization  
+- Similar structure to learning a spatial correction model from data  
+- Emphasizes stability via coordinate normalization and basis design  
 
 ---
+
+## 4. Fiducial Localization & EM–CT Registration
+
+Built a full pipeline to localize fiducials and register tracker space to CT image space.
+
+**Pipeline**
+- Apply distortion correction to EM measurements  
+- Use calibrated probe tip to compute fiducial positions  
+- Perform rigid EM → CT registration via least‑squares  
+- Validate alignment using known ground‑truth datasets  
+
+**Key ideas**
+- Multi‑stage transformation pipelines  
+- Error propagation awareness across steps  
+- Strong separation between sensing, calibration, and registration logic  
+
+---
+
+## 5. Navigation Pipeline (End‑to‑End System)
+
+Integrated all components into a navigation system that outputs probe tip positions in CT coordinates.
+
+**End‑to‑end flow**
+- Sensor correction → probe pose estimation → coordinate registration → CT‑space output  
+- Designed for extensibility to real‑time navigation data  
+- Emphasis on deterministic, debuggable computation over black‑box methods  
+
+---
+
+## 6. Surface Registration & ICP (Perception‑Focused Project)
+
+Implemented a geometric perception pipeline using Iterative Closest Point (ICP) to align tracked probe data to a surface mesh.
+
+**Algorithms implemented**
+- Closest point on triangle (barycentric coordinates)  
+- Closest point on mesh (brute‑force, accuracy‑first)  
+- Iterative Closest Point (ICP) with:
+  - Matching step (closest surface point)  
+  - Registration step (SVD‑based alignment)  
+  - Convergence criteria  
+
+**Relevance**
+- Core ideas from robot perception and mapping  
+- Explicit handling of corner cases and numerical instability  
+- Mirrors real‑world pose refinement in robotics systems  
+
+---
+
+## Software & Data Emphasis
+- Python‑based numerical computing (NumPy, linear algebra)  
+- Time‑series processing of multi‑frame sensor data  
+- Sensor fusion across EM, optical, and CT coordinate frames  
+- Least‑squares optimization, regression, and geometric modeling  
+- Modular architecture enabling reuse across projects  
+
+---
+
+## What This Demonstrates
+- Strong grounding in algorithms, math, and systems thinking  
+- Ability to translate physical sensing problems into solvable computational models  
+- Experience building full perception and calibration pipelines, not just isolated scripts  
+- Direct relevance to ML, robotics, perception, and medical robotics software roles  
 
