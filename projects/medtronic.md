@@ -30,11 +30,11 @@ Translate a high-dimensional, constraint-heavy product space into clear, justifi
 
 ## Technical & Systems Approach
 
-- Designed a backend decision-logic framework to model product compatibility, dependencies, and configuration constraints
+- Designed a backend decision-logic framework in Python to model product compatibility, dependencies, and configuration constraints
 - Developed a **priority-weighted recommendation strategy** to balance competing customer objectives without hard-coding static bundles
 - Structured an **input collection and normalization layer** to capture care area, customer preferences, and deployment context
 - Implemented **environment matching and dependency mapping** to automatically validate feasible configurations
-- Generated bundle outputs with concise **rationale summaries**, enabling transparency and explainability in recommendations
+- Generated frontend system with bundle outputs with concise **rationale summaries**, enabling transparency and explainability in recommendations
 
 ---
 
@@ -58,7 +58,7 @@ Translate a high-dimensional, constraint-heavy product space into clear, justifi
 
 ---
 
-## What This Demonstrates
+## Skills
 
 - Ability to translate ambiguous business and clinical requirements into structured software systems
 - Strong systems thinking at the intersection of product strategy, user needs, and backend logic
