@@ -1,5 +1,6 @@
 layout: default
 title: Real-Time Force Feedback for Surgical Simulation
+show_title: false
 ---
 
 # Real-Time Quantitative Force Feedback for Surgical Simulation  
