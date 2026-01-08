@@ -61,6 +61,6 @@ and industry-grade development workflows.
 ---
 
 ## Links
-- [GitHub](https://github.com/reachmayasharma)
+- [GitHub](https://github.com/mayasharma604)
 - [LinkedIn](https://www.linkedin.com/in/themayasharma/)
 - [Resume (PDF)](Maya_Sharma_Resume_2026.pdf)
