@@ -61,12 +61,3 @@ Using synchronized force and motion data, I developed algorithmic methods to ana
 This reframes surgical skill as a measurable perception and signal‑processing problem rather than a purely qualitative one.
 
 ---
-
-## Relevance to ML, Perception & Robotics
-This work directly aligns with ML‑driven robotics and perception systems:
-- Multimodal sensor fusion  
-- Noisy real‑world time‑series data  
-- Real‑time constraints and system latency  
-- Abstractions bridging hardware, algorithms, and learning‑based models  
-
-The resulting systems are designed to support future learning‑based approaches for automated feedback, skill classification, and adaptive surgical training.
