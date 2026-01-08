@@ -38,7 +38,7 @@ Translate a high-dimensional, constraint-heavy product space into clear, justifi
 
 ---
 
-## Software Emphasis
+## Key Software Features
 
 - Rule-based decision modeling with extensibility toward future data-driven or optimization-based approaches
 - Abstraction of product relationships into reusable logic rather than brittle, static mappings
