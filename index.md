@@ -22,6 +22,7 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 
 ### Surgical Tracking System for Training (Design Team)
 **Role:** Team Lead & Engineer 
+
 **Tech:** Python, time‑Series data processing, signal normalization, sensor fusion, dataset generation for ML/perception
 
 Led a multidisciplinary team developing a tracking system to enhance feedback for surgical
