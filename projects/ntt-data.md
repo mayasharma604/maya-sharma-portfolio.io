@@ -17,7 +17,6 @@ Identified and resolved severe battery drain issues in RFID handheld readers cau
 
 **Technical contributions**
 - Debugged low‑level client software interacting with RFID hardware and firmware
-- Optimized polling, communication, and power‑management logic
 - Reduced unnecessary background processes and inefficient I/O patterns
 
 **Impact**
