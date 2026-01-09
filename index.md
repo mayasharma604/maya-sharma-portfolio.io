@@ -14,7 +14,7 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 
 **Robotics & Perception:** Robotics & Control, Tracking, vision-based systems, Embedded Systems
 
-**Tools:** Git, Docker, Linux  
+**Tools:** Git, Docker  
 
 ---
 
