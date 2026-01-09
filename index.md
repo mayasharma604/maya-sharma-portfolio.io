@@ -66,9 +66,9 @@ in surgical and medical contexts.
 ---
 
 ### AI-ML Global Health Project
-**Tech:** ...
+**Tech:** Python, PyTorch, YOLOv8, Computer Vision, Object Detection, Data Augmentation, Model Evaluation  
 
-words...
+Developed an AI‑based microscopy system for automated detection and quantification of malaria parasites and white blood cells in blood smear images. Built and trained an end‑to‑end object detection pipeline using YOLOv8 to address variability in real‑world clinical data, emphasizing robustness, localization accuracy, and scalable deployment in low‑resource settings. Focused on data preprocessing, model training, error analysis, and metric‑driven iteration to support reliable clinical decision‑making and public health surveillance.
 
 [View Project →](projects/ai-ml-global-health.md)
 
