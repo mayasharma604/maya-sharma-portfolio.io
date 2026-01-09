@@ -27,8 +27,6 @@ Built a reusable 3D geometry and transformation library to support consistent re
 - Used NumPy for vectorized linear algebra and numerical stability
 
 **Key abstractions**
-- `register_points(A, B)` → computes optimal rotation and translation  
-- `apply_transform(R, t, pts)` → maps points across frames  
 - Clear separation between geometry, algorithms, and I/O logic
 
 ---
