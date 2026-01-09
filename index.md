@@ -1,5 +1,5 @@
 # Maya Sharma
-CS + BME | Machine Learning, Robotics, Medical Technology
+Computer Science + Biomedical Engineering | BS/MS | Machine Learning, AI, Robotics, Medical Technology
 
 I’m a computer science and biomedical engineering student focused on applying machine learning
 and robotics to real-world medical and healthcare problems. My work spans surgical tracking
