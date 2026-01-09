@@ -1,3 +1,4 @@
+---
 layout: default
 title: Real-Time Force Feedback for Surgical Simulation
 show_title: false
@@ -7,110 +8,120 @@ show_title: false
 **Advanced Design Team (UroSim) — Johns Hopkins University**
 
 ## Overview
-This project focused on improving **training for Advanced Endoscopic Enucleation of the Prostate (AEEP)**, a technically demanding urologic procedure with a steep learning curve and limited access to structured training tools. While modern prosthetic and surgical systems continue to advance, many simulation platforms lack **real-time, quantitative feedback**, especially related to applied force — a critical factor in avoiding injury to sensitive anatomical structures.
+This project focused on developing a **software-driven perception and sensing framework** for objective feedback in high-fidelity surgical simulation. Many existing simulation platforms rely on qualitative assessment or expert supervision, with limited access to **real-time, quantitative measures of physical interaction**, particularly applied force.
 
-Our team developed a **sensor-integrated hydrogel prostate simulator** capable of capturing **live force distribution data** during simulated AEEP procedures, enabling objective analysis of surgical technique and interaction with anatomy.
+Our team built a **sensor-integrated simulation system** that captures localized force and interaction data during complex endoscopic procedures. The system enables structured analysis of tool–tissue interaction patterns, supporting data-driven assessment of technique while remaining suitable for scalable simulation environments.
+
+> Specific anatomical details, device configurations, and clinical parameters have been intentionally abstracted to protect confidential work.
 
 ---
 
 ## My Role
-**Team Lead — Systems Integration & Data Analysis**
-
-- Led interdisciplinary collaboration between biomedical engineering students and clinical partners  
-- Designed and integrated conductive pressure sensors into a hydrogel simulation phantom  
-- Developed calibration and data collection pipelines for real-time force measurement  
-- Coordinated testing with expert surgeons and supported data interpretation  
-- Contributed to manuscript preparation for journal submission  
+**Team Lead — Systems Integration & Data / Perception Pipeline**
+- Led end-to-end system design across sensing, data acquisition, and software abstraction  
+- Designed calibration and validation workflows for distributed sensor inputs  
+- Built real-time data pipelines for synchronized multimodal signal processing  
+- Coordinated evaluation with domain experts and guided data interpretation  
+- Contributed to technical documentation and research dissemination  
 
 ---
 
-## Technical Approach
-This project was driven by the design of a **software-centric sensing and perception pipeline** for real-time analysis of surgeon–instrument interaction during simulated AEEP procedures.
+## Technical & Algorithmic Approach
+The core contribution of this work is a **real-time perception pipeline** that converts raw multimodal sensor signals into structured, time-aligned representations suitable for analysis and learning-based extensions.
 
-At a high level, the system abstracted raw multimodal sensor inputs into synchronized, time-aligned representations of **force, pressure distribution, and instrument state**, enabling structured analysis of surgical technique.
+At a systems level, the pipeline follows a robotics-inspired architecture:
+> **Signal acquisition → state estimation → temporal alignment → data abstraction**
 
 ### Signal Acquisition & Processing
-Analog signals from distributed pressure sensors were digitized via an embedded controller and streamed to a higher-level processing layer. Software routines handled:
-- Sensor calibration and baseline normalization
-- Noise filtering and drift compensation
-- Continuous multichannel time-series acquisition
+Distributed sensor signals were streamed through an embedded acquisition layer into a higher-level software stack. The processing pipeline included:
+- Sensor calibration and baseline normalization  
+- Noise filtering and drift compensation  
+- Continuous multichannel time-series ingestion  
 
-Force and pressure were inferred through resistance-based signal modeling, producing localized estimates of mechanical interaction across anatomically relevant regions of the phantom.
+Raw analog measurements were transformed into **localized force and pressure estimates** using resistance-based signal models. Emphasis was placed on numerical stability and repeatability rather than device-specific tuning.
 
-### Instrument State Estimation
-To approximate endoscope motion without relying on external tracking systems, inertial measurement unit (IMU) data (gyroscope, accelerometer, and magnetometer) were processed to estimate **endoscope tip position and motion trends** within the simulator. Sensor fusion techniques were used to transform raw IMU signals into a stable representation of instrument pose over time, enabling correlation between endoscope positioning and observed force patterns.
+---
 
-This approach allowed endoscope behavior to be inferred using onboard sensing alone, supporting scalable deployment in simulation environments without optical tracking infrastructure.
+### Instrument State Estimation (IMU-Based)
+To infer tool motion without external tracking infrastructure, inertial measurement unit (IMU) data (gyroscope, accelerometer, magnetometer) were processed to estimate **instrument pose trends over time**.
 
-### Data Abstraction & Temporal Alignment
-A Python-based software pipeline was developed to:
-- Timestamp and synchronize force, pressure, and instrument state data
-- Segment recordings by procedural phase
-- Generate structured datasets suitable for downstream analysis
+Key software concepts:
+- Sensor fusion to combine inertial signals into a stable state estimate  
+- Temporal smoothing and bias mitigation for noisy real-world signals  
+- Frame-consistent representation of motion suitable for downstream correlation  
 
-By abstracting low-level sensor signals into higher-level representations, the system enabled identification of **high-force events**, **procedure-specific interaction patterns**, and **anatomical regions associated with elevated mechanical stress**.
+This approach supports **self-contained state estimation**, enabling deployment in simulation settings where optical or electromagnetic tracking is impractical.
 
-The resulting architecture uses perception pipelines similar to what is used in robotics and intelligent systems. The algorithmic framework in this project involves multimodal sensor fusion, real-time signal processing, state estimation from noisy inputs, and data-driven interpretation of physical interaction.
+---
 
-This framework provides a foundation for future extensions into **learning-based skill assessment**, **trajectory-aware feedback**, and **adaptive surgical training systems** that integrate perception, control, and human–robot interaction principles.
+### Multimodal Synchronization & Data Abstraction
+A Python-based pipeline was developed to:
+- Timestamp and synchronize force, pressure, and motion data streams  
+- Segment recordings by procedural phase  
+- Generate structured datasets for downstream analysis  
+
+Low-level sensor data was abstracted into higher-level representations that enabled detection of:
+- High-force interaction events  
+- Phase-dependent force patterns  
+- Regions associated with elevated mechanical stress  
+
+This abstraction layer mirrors perception pipelines used in robotics and intelligent systems, emphasizing **clean interfaces, modularity, and extensibility**.
+
+---
+
+## ML / AI Features
+While the system is deterministic by design, the generated datasets and abstractions are explicitly structured to support learning-based methods, including:
+- Skill assessment via temporal pattern recognition  
+- Anomaly detection based on force–motion relationships  
+- Phase-aware feedback models  
+- Trajectory-conditioned performance evaluation  
+
+The project emphasizes **data quality, synchronization, and representation**.
 
 ---
 
 ## Key Capabilities
-- **Real-time force sensing** during simulated endoscopic procedures  
-- **Anatomically distributed sensing** across clinically relevant prostate regions  
-- **Synchronized data + video analysis** for objective skill assessment  
-- **Noninvasive, low-cost sensing approach** suitable for simulation environments  
+- Real-time, localized force sensing in simulation  
+- Multimodal sensor fusion without external tracking infrastructure  
+- Time-aligned force and motion representations  
+- Scalable, non-invasive sensing architecture  
 
 ---
 
 ## Why This Matters
-AEEP offers strong clinical outcomes but remains underutilized due to the **high training burden** required to reach proficiency. Current training models rely heavily on expert supervision and lack quantitative guidance on safe force application.
+Complex surgical procedures demand precise control of force and motion, yet training often lacks objective feedback. This work demonstrates how **perception-driven software systems** can surface quantitative insights from physical interaction data, reducing reliance on subjective assessment.
 
-This work demonstrates the feasibility of **force-aware surgical simulation**, opening pathways for:
-- Reduced dependence on continuous expert oversight  
-- Objective feedback for trainees  
-- Safer skill acquisition in high-risk anatomical regions  
+The framework supports safer skill acquisition, objective evaluation, and future integration of intelligent feedback systems in simulation-based training.
 
 ---
 
-## Outcomes & Impact
-- Demonstrated feasibility of capturing localized force patterns during simulated AEEP  
-- Identified procedure phases associated with elevated mechanical stress  
-- Informed design improvements for future training platforms  
+## Outcomes
+- Demonstrated feasibility of real-time force-aware simulation  
+- Identified repeatable interaction patterns correlated with procedural phases  
+- Established a reusable perception pipeline for simulation environments  
 
-While this prototype revealed challenges related to sensor robustness and repeatability, it provides a strong foundation for **next-generation simulation systems** that integrate multimodal feedback to improve surgical education.
-
----
-
-## Future Directions
-- Optimizing sensor placement near high-risk anatomical regions  
-- Simplifying sensor layouts for improved reliability  
-- Integrating additional sensing modalities to infer instrument orientation  
-- Expanding the framework to other endoscopic and robotic surgical procedures  
+Observed limitations in sensor robustness informed design tradeoffs and future system iterations, reinforcing the importance of software abstraction over hardware specificity.
 
 ---
 
 ## Skills & Tools
-**Biomedical Systems**
-- Surgical simulation design  
-- Sensor integration & calibration  
-- Embedded systems for data acquisition  
+**Perception & Systems**
+- Multimodal sensor fusion  
+- State estimation from noisy signals  
+- Real-time signal processing  
 
 **Software & Data**
- - Designed end‑to‑end Python-based data pipelines for real-time acquisition, calibration, and analysis of multimodal sensor streams
- - Implemented time‑series processing and event segmentation to identify force patterns across procedural phases
- - Developed hardware–software synchronization mechanisms to temporally align sensor data with procedural video and instrument state
- - Applied signal conditioning, normalization, and noise mitigation to improve robustness of real-world sensor measurements
- - Generated structured datasets to support future learning-based skill assessment, anomaly detection, and perception-driven feedback
+- Python-based data pipelines  
+- Time-series processing and event segmentation  
+- Hardware–software synchronization  
+- Dataset generation for learning-based systems  
 
-**Collaboration**
-- Clinical–engineering collaboration  
-- Technical documentation (Design History Files (DHF), Competitive Analyses, Concept Evaluations, Risk Analyses, Regulatory Pathways, V&V Testing, etc.)
-- Research writing  
+**Engineering Practice**
+- Technical documentation (DHF, risk analysis, validation planning)  
+- Cross-disciplinary collaboration  
+- Research communication  
 
 ---
 
-*Details have been intentionally limited to protect confidential work. This work will be presented at International Meeting on Simulation in Healthcare (IMSH) 2026.*
-
-
+*Details have been intentionally limited to protect confidential work.  
+This project will be presented at the International Meeting on Simulation in Healthcare (IMSH) 2026.*
