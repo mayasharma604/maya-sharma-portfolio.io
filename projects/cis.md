@@ -8,7 +8,7 @@ title: Computer Integrated Surgery
 **Medical Navigation, Tracking, and Perception Systems**  
 *Python · Numerical Linear Algebra · Optimization · Geometry · Sensor Fusion*
 
-Worked on a suite of software systems for medical navigation and robotic perception, focused on translating raw sensor data into accurate, stable, and interpretable spatial information for image‑guided surgery. The work centered on building end‑to‑end pipelines for tracking, calibration, registration, and navigation, emphasizing numerical robustness, modular abstractions, and algorithmic correctness in safety‑critical settings.
+Worked on a suite of software systems, under Dr. Russell Taylor, for medical navigation and robotic perception, focused on translating raw sensor data into accurate, stable, and interpretable spatial information for image‑guided surgery. The work centered on building end‑to‑end pipelines for tracking, calibration, registration, and navigation, emphasizing numerical robustness, modular abstractions, and algorithmic correctness in safety‑critical settings.
 
 These projects collectively address a core problem in medical robotics: **how to reliably map physical instrument motion into a consistent 3D coordinate system that aligns with medical imaging data**.
 
