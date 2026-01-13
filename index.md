@@ -21,7 +21,7 @@ systems, perception algorithms, and industry projects at Medtronic and NTT Data.
 ## Industry Projects
 
 ### Medical Device Engineering Projects — Medtronic
-**Tech:** Embedded systems, software validation, medical device R&D  
+**Tech:** Software validation, end-to-end backend & frontend development, medical device R&D  
 
 Worked on medical device projects under real-world constraints including safety, reliability,
 and cross-functional collaboration. Contributed to software and system-level development in
